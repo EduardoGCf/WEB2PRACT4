@@ -44,7 +44,7 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-            <Nav.Link as={Link} to="/admin">Administración</Nav.Link>
+            <Nav.Link as={Link} to="/admin">--</Nav.Link>
           </Nav>
           <Form className="d-flex position-relative">
   <FormControl

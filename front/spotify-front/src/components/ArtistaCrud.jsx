@@ -29,6 +29,10 @@ function ArtistaCrud() {
   };
 
   const handleCreate = () => {
+    if (!newArtista.nombre || !newArtista.imagen || !newArtista.id_genero) {
+      alert('Por favor complete todos los campos');
+      return;
+    }
     const formData = new FormData();
     formData.append('nombre', newArtista.nombre);
     formData.append('id_genero', newArtista.id_genero);

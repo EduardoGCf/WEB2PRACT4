@@ -29,6 +29,10 @@ function CancionCrud() {
   };
 
   const handleCreate = () => {
+    if (!newCancion.nombre || !newCancion.imagen || !newCancion.cancion_mp3 || !newCancion.id_albun) {
+      alert('Por favor complete todos los campos');
+      return;
+    }
     const formData = new FormData();
     formData.append('nombre', newCancion.nombre);
     formData.append('id_albun', newCancion.id_albun);

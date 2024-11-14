@@ -20,6 +20,10 @@ function GeneroCrud() {
   };
 
   const handleCreate = () => {
+    if (!newGenero.nombre || !newGenero.imagen) {
+     alert('Por favor complete todos los campos');
+      return;
+    }
     const formData = new FormData();
     formData.append('nombre', newGenero.nombre);
     formData.append('imagen', newGenero.imagen);

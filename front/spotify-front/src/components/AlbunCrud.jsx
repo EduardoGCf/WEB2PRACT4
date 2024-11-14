@@ -29,6 +29,10 @@ function AlbunCrud() {
   };
 
   const handleCreate = () => {
+    if (!newAlbun.nombre || !newAlbun.imagen || !newAlbun.id_artista) {
+      alert('Por favor complete todos los campos');
+      return;
+    }
     const formData = new FormData();
     formData.append('nombre', newAlbun.nombre);
     formData.append('imagen', newAlbun.imagen);
