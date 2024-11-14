@@ -1,0 +1,93 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ArtistasController = void 0;
+const common_1 = require("@nestjs/common");
+const artistas_service_1 = require("./artistas.service");
+const artista_dto_1 = require("./artista.dto");
+const platform_express_1 = require("@nestjs/platform-express");
+const multer_1 = require("multer");
+const path_1 = require("path");
+let ArtistasController = class ArtistasController {
+    constructor(artistaService) {
+        this.artistaService = artistaService;
+    }
+    findAll() {
+        return this.artistaService.findAll();
+    }
+    findOne(id) {
+        return this.artistaService.findOne(id);
+    }
+    async create(createArtistaDto, file) {
+        return this.artistaService.create(Object.assign(Object.assign({}, createArtistaDto), { imagen: file.filename }));
+    }
+    async update(id, updateArtistaDto) {
+        return this.artistaService.update(id, updateArtistaDto);
+    }
+    async remove(id) {
+        return this.artistaService.remove(id);
+    }
+};
+exports.ArtistasController = ArtistasController;
+__decorate([
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], ArtistasController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)(":id"),
+    __param(0, (0, common_1.Param)("id")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], ArtistasController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Post)(),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)("imagen", {
+        storage: (0, multer_1.diskStorage)({
+            destination: "./uploads/artistas",
+            filename: (req, file, callback) => {
+                const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+                const ext = (0, path_1.extname)(file.originalname);
+                callback(null, `artista-${uniqueSuffix}${ext}`);
+            },
+        }),
+    })),
+    __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.UploadedFile)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [artista_dto_1.CreateArtistaDto, Object]),
+    __metadata("design:returntype", Promise)
+], ArtistasController.prototype, "create", null);
+__decorate([
+    (0, common_1.Patch)(":id"),
+    __param(0, (0, common_1.Param)("id")),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, artista_dto_1.UpdateArtistaDto]),
+    __metadata("design:returntype", Promise)
+], ArtistasController.prototype, "update", null);
+__decorate([
+    (0, common_1.Delete)(":id"),
+    __param(0, (0, common_1.Param)("id")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], ArtistasController.prototype, "remove", null);
+exports.ArtistasController = ArtistasController = __decorate([
+    (0, common_1.Controller)("artista"),
+    __metadata("design:paramtypes", [artistas_service_1.ArtistasService])
+], ArtistasController);
+//# sourceMappingURL=artistas.controller.spec.js.map
