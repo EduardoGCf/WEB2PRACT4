@@ -20,18 +20,18 @@ __decorate([
     __metadata("design:type", Number)
 ], Genero.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: "varchar", length: 100 }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
     __metadata("design:type", String)
 ], Genero.prototype, "nombre", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: "varchar", nullable: true }),
+    (0, typeorm_1.Column)({ type: 'varchar', nullable: true }),
     __metadata("design:type", String)
 ], Genero.prototype, "imagen", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => artista_entity_1.Artista, artista => artista.genero, { cascade: true, onDelete: "CASCADE", onUpdate: "CASCADE" }),
+    (0, typeorm_1.OneToMany)(() => artista_entity_1.Artista, artista => artista.genero, { cascade: true, onDelete: 'CASCADE', onUpdate: 'CASCADE' }),
     __metadata("design:type", Array)
 ], Genero.prototype, "artistas", void 0);
 exports.Genero = Genero = __decorate([
-    (0, typeorm_1.Entity)("genero")
+    (0, typeorm_1.Entity)('genero')
 ], Genero);
 //# sourceMappingURL=genero.entity.js.map

@@ -20,23 +20,23 @@ __decorate([
     __metadata("design:type", Number)
 ], Cancion.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: "varchar", length: 100 }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
     __metadata("design:type", String)
 ], Cancion.prototype, "nombre", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: "varchar", nullable: true }),
+    (0, typeorm_1.Column)({ type: 'varchar', nullable: true }),
     __metadata("design:type", String)
 ], Cancion.prototype, "cancion_mp3", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: "varchar", nullable: true }),
+    (0, typeorm_1.Column)({ type: 'varchar', nullable: true }),
     __metadata("design:type", String)
 ], Cancion.prototype, "imagen", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => albun_entity_1.Albun, albun => albun.canciones, { onDelete: "CASCADE", onUpdate: "CASCADE" }),
-    (0, typeorm_1.JoinColumn)({ name: "id_albun" }),
+    (0, typeorm_1.ManyToOne)(() => albun_entity_1.Albun, albun => albun.canciones, { onDelete: 'CASCADE', onUpdate: 'CASCADE' }),
+    (0, typeorm_1.JoinColumn)({ name: 'id_albun' }),
     __metadata("design:type", albun_entity_1.Albun)
 ], Cancion.prototype, "albun", void 0);
 exports.Cancion = Cancion = __decorate([
-    (0, typeorm_1.Entity)("cancion")
+    (0, typeorm_1.Entity)('cancion')
 ], Cancion);
 //# sourceMappingURL=cancion.entity.js.map

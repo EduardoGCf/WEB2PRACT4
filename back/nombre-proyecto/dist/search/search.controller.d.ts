@@ -1,7 +1,7 @@
-import { GenerosService } from "../generos/generos.service";
-import { ArtistasService } from "../artistas/artistas.service";
-import { AlbunService } from "../albun/albun.service";
-import { CancionesService } from "../canciones/canciones.service";
+import { GenerosService } from '../generos/generos.service';
+import { ArtistasService } from '../artistas/artistas.service';
+import { AlbunService } from '../albun/albun.service';
+import { CancionesService } from '../canciones/canciones.service';
 export declare class SearchController {
     private readonly generosService;
     private readonly artistasService;

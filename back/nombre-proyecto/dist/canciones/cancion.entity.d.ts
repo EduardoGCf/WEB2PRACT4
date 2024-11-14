@@ -1,4 +1,4 @@
-import { Albun } from "../albun/albun.entity";
+import { Albun } from '../albun/albun.entity';
 export declare class Cancion {
     id: number;
     nombre: string;

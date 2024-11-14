@@ -20,7 +20,7 @@ let AppController = class AppController {
         return this.appService.getHello();
     }
     getHola() {
-        return "Hola Mundo   !";
+        return 'Hola Mundo   !';
     }
 };
 exports.AppController = AppController;
@@ -31,7 +31,7 @@ __decorate([
     __metadata("design:returntype", String)
 ], AppController.prototype, "getHello", null);
 __decorate([
-    (0, common_1.Get)("hola"),
+    (0, common_1.Get)('hola'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)

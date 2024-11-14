@@ -1,7 +1,7 @@
-import { GenerosService } from "./generos.service";
-import { Genero } from "./genero.entity";
-import { CreateGeneroDto, UpdateGeneroDto } from "./genero.dto";
-import { Artista } from "../artistas/artista.entity";
+import { GenerosService } from './generos.service';
+import { Genero } from './genero.entity';
+import { CreateGeneroDto, UpdateGeneroDto } from './genero.dto';
+import { Artista } from '../artistas/artista.entity';
 export declare class GeneroController {
     private readonly generoService;
     constructor(generoService: GenerosService);

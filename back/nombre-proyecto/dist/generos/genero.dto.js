@@ -16,12 +16,12 @@ class CreateGeneroDto {
 exports.CreateGeneroDto = CreateGeneroDto;
 __decorate([
     (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)({ message: "El nombre del género no puede estar vacío" }),
+    (0, class_validator_1.IsNotEmpty)({ message: 'El nombre del género no puede estar vacío' }),
     __metadata("design:type", String)
 ], CreateGeneroDto.prototype, "nombre", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)({ message: "La imagen del género no puede estar vacía" }),
+    (0, class_validator_1.IsNotEmpty)({ message: 'La imagen del género no puede estar vacía' }),
     __metadata("design:type", String)
 ], CreateGeneroDto.prototype, "imagen", void 0);
 class UpdateGeneroDto {

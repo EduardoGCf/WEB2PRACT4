@@ -1,8 +1,8 @@
-import { Repository } from "typeorm";
-import { Genero } from "../generos/genero.entity";
-import { Artista } from "../artistas/artista.entity";
-import { Albun } from "../albun/albun.entity";
-import { Cancion } from "../canciones/cancion.entity";
+import { Repository } from 'typeorm';
+import { Genero } from '../generos/genero.entity';
+import { Artista } from '../artistas/artista.entity';
+import { Albun } from '../albun/albun.entity';
+import { Cancion } from '../canciones/cancion.entity';
 export declare class SearchService {
     private readonly generoRepo;
     private readonly artistaRepo;

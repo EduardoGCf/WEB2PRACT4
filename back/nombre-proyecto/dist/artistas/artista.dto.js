@@ -16,12 +16,12 @@ class CreateArtistaDto {
 exports.CreateArtistaDto = CreateArtistaDto;
 __decorate([
     (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)({ message: "El nombre del artista no puede estar vacío" }),
+    (0, class_validator_1.IsNotEmpty)({ message: 'El nombre del artista no puede estar vacío' }),
     __metadata("design:type", String)
 ], CreateArtistaDto.prototype, "nombre", void 0);
 __decorate([
     (0, class_validator_1.IsNumber)(),
-    (0, class_validator_1.IsNotEmpty)({ message: "El ID del género es obligatorio" }),
+    (0, class_validator_1.IsNotEmpty)({ message: 'El ID del género es obligatorio' }),
     __metadata("design:type", Number)
 ], CreateArtistaDto.prototype, "id_genero", void 0);
 __decorate([

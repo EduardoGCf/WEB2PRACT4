@@ -25,12 +25,12 @@ let CancionesService = class CancionesService {
         this.albunRepository = albunRepository;
     }
     findAll() {
-        return this.cancionRepository.find({ relations: ["albun"] });
+        return this.cancionRepository.find({ relations: ['albun'] });
     }
     async findByName(query) {
         return this.cancionRepository.find({
             where: { nombre: (0, typeorm_2.ILike)(`%${query}%`) },
-            relations: ["albun", "albun.artista"],
+            relations: ['albun', 'albun.artista'],
         });
     }
     async findOne(id, relations = []) {
@@ -53,7 +53,7 @@ let CancionesService = class CancionesService {
     async update(id, updateCancionDto) {
         const cancion = await this.cancionRepository.findOne({
             where: { id },
-            relations: ["albun"],
+            relations: ['albun'],
         });
         if (!cancion) {
             throw new common_2.NotFoundException(`Canción con ID ${id} no encontrada`);

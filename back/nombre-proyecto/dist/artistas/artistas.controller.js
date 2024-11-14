@@ -25,18 +25,16 @@ let ArtistasController = class ArtistasController {
     }
     async findAll() {
         const artistas = await this.artistasService.findAll();
-        return artistas.map((artista) => ({
+        return artistas.map(artista => ({
             ...artista,
             imagen: `http://localhost:3000/uploads/${artista.imagen}`,
         }));
     }
     async findAlbunesByArtista(id) {
         const albunes = await this.artistasService.findAlbunesByArtista(id);
-        return albunes.map((albun) => ({
+        return albunes.map(albun => ({
             ...albun,
-            imagen: albun.imagen
-                ? `http://localhost:3000/uploads/${albun.imagen}`
-                : `http://localhost:3000/uploads/default.jpg`,
+            imagen: albun.imagen ? `http://localhost:3000/uploads/${albun.imagen}` : `http://localhost:3000/uploads/default.jpg`,
         }));
     }
     async findOne(id) {
@@ -46,9 +44,7 @@ let ArtistasController = class ArtistasController {
         }
         return {
             ...artista,
-            imagen: artista.imagen
-                ? `http://localhost:3000/uploads/${artista.imagen}`
-                : null,
+            imagen: artista.imagen ? `http://localhost:3000/uploads/${artista.imagen}` : null,
         };
     }
     async create(createArtistaDto, file) {
@@ -63,7 +59,7 @@ let ArtistasController = class ArtistasController {
         }
         const hasUpdates = Object.keys(updateArtistaDto).length > 0;
         if (!hasUpdates) {
-            throw new common_1.BadRequestException("No hay datos válidos para actualizar.");
+            throw new common_1.BadRequestException('No hay datos válidos para actualizar.');
         }
         return this.artistasService.update(id, updateArtistaDto);
     }
@@ -85,26 +81,26 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ArtistasController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(":id/albunes"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Get)(':id/albunes'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], ArtistasController.prototype, "findAlbunesByArtista", null);
 __decorate([
-    (0, common_1.Get)(":id"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], ArtistasController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Post)(),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)("imagen", {
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('imagen', {
         storage: (0, multer_1.diskStorage)({
-            destination: "./uploads",
+            destination: './uploads',
             filename: (req, file, callback) => {
-                const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+                const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
                 const ext = (0, path_1.extname)(file.originalname);
                 callback(null, `artista-${uniqueSuffix}${ext}`);
             },
@@ -117,18 +113,18 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ArtistasController.prototype, "create", null);
 __decorate([
-    (0, common_1.Patch)(":id"),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)("imagen", {
+    (0, common_1.Patch)(':id'),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('imagen', {
         storage: (0, multer_1.diskStorage)({
-            destination: "./uploads",
+            destination: './uploads',
             filename: (req, file, callback) => {
-                const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+                const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
                 const ext = (0, path_1.extname)(file.originalname);
                 callback(null, `artista-${uniqueSuffix}${ext}`);
             },
         }),
     })),
-    __param(0, (0, common_1.Param)("id")),
+    __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __param(2, (0, common_1.UploadedFile)()),
     __metadata("design:type", Function),
@@ -136,28 +132,28 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ArtistasController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(":id"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], ArtistasController.prototype, "remove", null);
 __decorate([
-    (0, common_1.Get)("artistas/:id/albunes"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Get)('artistas/:id/albunes'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], ArtistasController.prototype, "getAlbumsByArtist", null);
 __decorate([
-    (0, common_1.Get)("artistas/:id/canciones"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Get)('artistas/:id/canciones'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], ArtistasController.prototype, "getSongsByArtist", null);
 exports.ArtistasController = ArtistasController = __decorate([
-    (0, common_1.Controller)("artistas"),
+    (0, common_1.Controller)('artistas'),
     __metadata("design:paramtypes", [artistas_service_1.ArtistasService])
 ], ArtistasController);
 //# sourceMappingURL=artistas.controller.js.map

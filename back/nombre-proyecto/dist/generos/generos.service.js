@@ -37,13 +37,13 @@ let GenerosService = class GenerosService {
     async findArtistasByGenero(id) {
         return this.artistaRepository.find({
             where: { genero: { id } },
-            relations: ["genero"],
+            relations: ['genero'],
         });
     }
     async findArtistasPorGenero(id) {
         const genero = await this.generoRepository.findOne({
             where: { id },
-            relations: ["artistas"],
+            relations: ['artistas'],
         });
         if (!genero) {
             throw new common_1.NotFoundException(`Género con ID ${id} no encontrado`);

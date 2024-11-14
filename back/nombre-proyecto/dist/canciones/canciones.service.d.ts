@@ -1,7 +1,7 @@
-import { Repository } from "typeorm";
-import { Cancion } from "./cancion.entity";
-import { Albun } from "../albun/albun.entity";
-import { CreateCancionDto, UpdateCancionDto } from "./cancion.dto";
+import { Repository } from 'typeorm';
+import { Cancion } from './cancion.entity';
+import { Albun } from '../albun/albun.entity';
+import { CreateCancionDto, UpdateCancionDto } from './cancion.dto';
 export declare class CancionesService {
     private readonly cancionRepository;
     private readonly albunRepository;

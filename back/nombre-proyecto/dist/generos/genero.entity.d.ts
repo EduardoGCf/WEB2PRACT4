@@ -1,4 +1,4 @@
-import { Artista } from "../artistas/artista.entity";
+import { Artista } from '../artistas/artista.entity';
 export declare class Genero {
     id: number;
     nombre: string;

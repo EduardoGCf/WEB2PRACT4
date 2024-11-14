@@ -51,13 +51,13 @@ let SearchController = class SearchController {
 exports.SearchController = SearchController;
 __decorate([
     (0, common_1.Get)(),
-    __param(0, (0, common_1.Query)("q")),
+    __param(0, (0, common_1.Query)('q')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], SearchController.prototype, "search", null);
 exports.SearchController = SearchController = __decorate([
-    (0, common_1.Controller)("search"),
+    (0, common_1.Controller)('search'),
     __metadata("design:paramtypes", [generos_service_1.GenerosService,
         artistas_service_1.ArtistasService,
         albun_service_1.AlbunService,

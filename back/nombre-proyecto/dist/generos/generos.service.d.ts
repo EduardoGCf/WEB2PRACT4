@@ -1,6 +1,6 @@
-import { Repository } from "typeorm";
-import { Genero } from "./genero.entity";
-import { Artista } from "../artistas/artista.entity";
+import { Repository } from 'typeorm';
+import { Genero } from './genero.entity';
+import { Artista } from '../artistas/artista.entity';
 export declare class GenerosService {
     private readonly generoRepository;
     private readonly artistaRepository;

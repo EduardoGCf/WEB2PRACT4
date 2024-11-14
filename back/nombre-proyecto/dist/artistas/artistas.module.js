@@ -20,10 +20,7 @@ let ArtistasModule = class ArtistasModule {
 exports.ArtistasModule = ArtistasModule;
 exports.ArtistasModule = ArtistasModule = __decorate([
     (0, common_1.Module)({
-        imports: [
-            typeorm_1.TypeOrmModule.forFeature([artista_entity_1.Artista, albun_entity_1.Albun, cancion_entity_1.Cancion]),
-            generos_module_1.GenerosModule,
-        ],
+        imports: [typeorm_1.TypeOrmModule.forFeature([artista_entity_1.Artista, albun_entity_1.Albun, cancion_entity_1.Cancion]), generos_module_1.GenerosModule],
         providers: [artistas_service_1.ArtistasService],
         controllers: [artistas_controller_1.ArtistasController],
         exports: [typeorm_1.TypeOrmModule, artistas_service_1.ArtistasService],

@@ -1,9 +1,9 @@
-import { Repository } from "typeorm";
-import { Artista } from "./artista.entity";
-import { Albun } from "../albun/albun.entity";
-import { Cancion } from "../canciones/cancion.entity";
-import { Genero } from "../generos/genero.entity";
-import { CreateArtistaDto, UpdateArtistaDto } from "./artista.dto";
+import { Repository } from 'typeorm';
+import { Artista } from './artista.entity';
+import { Albun } from '../albun/albun.entity';
+import { Cancion } from '../canciones/cancion.entity';
+import { Genero } from '../generos/genero.entity';
+import { CreateArtistaDto, UpdateArtistaDto } from './artista.dto';
 export declare class ArtistasService {
     private readonly artistaRepository;
     private readonly albunRepository;

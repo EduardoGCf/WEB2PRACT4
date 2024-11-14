@@ -16,12 +16,12 @@ class CreateCancionDto {
 exports.CreateCancionDto = CreateCancionDto;
 __decorate([
     (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)({ message: "El nombre de la canción no puede estar vacío" }),
+    (0, class_validator_1.IsNotEmpty)({ message: 'El nombre de la canción no puede estar vacío' }),
     __metadata("design:type", String)
 ], CreateCancionDto.prototype, "nombre", void 0);
 __decorate([
     (0, class_validator_1.IsNumber)(),
-    (0, class_validator_1.IsNotEmpty)({ message: "El ID del álbum es obligatorio" }),
+    (0, class_validator_1.IsNotEmpty)({ message: 'El ID del álbum es obligatorio' }),
     __metadata("design:type", Number)
 ], CreateCancionDto.prototype, "id_albun", void 0);
 class UpdateCancionDto {
@@ -43,7 +43,7 @@ __decorate([
     __metadata("design:type", String)
 ], UpdateCancionDto.prototype, "cancion_mp3", void 0);
 __decorate([
-    (0, class_validator_1.IsNumber)({}, { message: "El id_albun debe ser un número" }),
+    (0, class_validator_1.IsNumber)({}, { message: 'El id_albun debe ser un número' }),
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
 ], UpdateCancionDto.prototype, "id_albun", void 0);

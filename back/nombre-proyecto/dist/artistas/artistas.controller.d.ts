@@ -1,6 +1,6 @@
-import { ArtistasService } from "./artistas.service";
-import { Artista } from "./artista.entity";
-import { CreateArtistaDto, UpdateArtistaDto } from "./artista.dto";
+import { ArtistasService } from './artistas.service';
+import { Artista } from './artista.entity';
+import { CreateArtistaDto, UpdateArtistaDto } from './artista.dto';
 export declare class ArtistasController {
     private readonly artistasService;
     constructor(artistasService: ArtistasService);

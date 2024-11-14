@@ -26,16 +26,13 @@ let CancionesController = class CancionesController {
     }
     async findAll() {
         const canciones = await this.cancionesService.findAll();
-        return canciones.map((cancion) => ({
+        return canciones.map(cancion => ({
             ...cancion,
             imagen: `http://localhost:3000/uploads/${cancion.imagen}`,
         }));
     }
     async findOne(id) {
-        const cancion = await this.cancionesService.findOne(id, [
-            "albun",
-            "albun.artista",
-        ]);
+        const cancion = await this.cancionesService.findOne(id, ['albun', 'albun.artista']);
         return {
             ...cancion,
             imagen: `http://localhost:3000/uploads/${cancion.imagen}`,
@@ -43,10 +40,10 @@ let CancionesController = class CancionesController {
         };
     }
     async create(createCancionDto, files) {
-        const imagenFile = files.find((file) => file.mimetype.startsWith("image/"));
-        const mp3File = files.find((file) => file.mimetype.startsWith("audio/"));
+        const imagenFile = files.find(file => file.mimetype.startsWith('image/'));
+        const mp3File = files.find(file => file.mimetype.startsWith('audio/'));
         if (!imagenFile || !mp3File) {
-            throw new common_1.BadRequestException("Ambos archivos son necesarios");
+            throw new common_1.BadRequestException('Ambos archivos son necesarios');
         }
         return this.cancionesService.create({
             ...createCancionDto,
@@ -63,7 +60,7 @@ let CancionesController = class CancionesController {
         }
         const hasUpdates = Object.keys(updateCancionDto).length > 0;
         if (!hasUpdates) {
-            throw new common_1.BadRequestException("No hay datos válidos para actualizar.");
+            throw new common_1.BadRequestException('No hay datos válidos para actualizar.');
         }
         return this.cancionesService.update(id, updateCancionDto);
     }
@@ -72,7 +69,7 @@ let CancionesController = class CancionesController {
     }
     async getSongMp3(id, res) {
         const song = await this.cancionesService.findOne(id);
-        const filePath = (0, path_2.join)(__dirname, "./uploads", song.cancion_mp3);
+        const filePath = (0, path_2.join)(__dirname, './uploads', song.cancion_mp3);
         return res.sendFile(filePath);
     }
 };
@@ -84,19 +81,19 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CancionesController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(":id"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], CancionesController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Post)(),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FilesInterceptor)("files", 2, {
+    (0, common_1.UseInterceptors)((0, platform_express_1.FilesInterceptor)('files', 2, {
         storage: (0, multer_1.diskStorage)({
-            destination: "./uploads",
+            destination: './uploads',
             filename: (req, file, cb) => {
-                const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+                const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
                 cb(null, `${file.fieldname}-${uniqueSuffix}${(0, path_1.extname)(file.originalname)}`);
             },
         }),
@@ -104,26 +101,25 @@ __decorate([
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.UploadedFiles)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [cancion_dto_1.CreateCancionDto,
-        Array]),
+    __metadata("design:paramtypes", [cancion_dto_1.CreateCancionDto, Array]),
     __metadata("design:returntype", Promise)
 ], CancionesController.prototype, "create", null);
 __decorate([
-    (0, common_1.Patch)(":id"),
+    (0, common_1.Patch)(':id'),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileFieldsInterceptor)([
-        { name: "imagen", maxCount: 1 },
-        { name: "cancion_mp3", maxCount: 1 },
+        { name: 'imagen', maxCount: 1 },
+        { name: 'cancion_mp3', maxCount: 1 },
     ], {
         storage: (0, multer_1.diskStorage)({
-            destination: "./uploads",
+            destination: './uploads',
             filename: (req, file, callback) => {
-                const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+                const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
                 const ext = (0, path_1.extname)(file.originalname);
                 callback(null, `files-${uniqueSuffix}${ext}`);
             },
         }),
     })),
-    __param(0, (0, common_1.Param)("id")),
+    __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __param(2, (0, common_1.UploadedFiles)()),
     __metadata("design:type", Function),
@@ -131,22 +127,22 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CancionesController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(":id"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], CancionesController.prototype, "remove", null);
 __decorate([
-    (0, common_1.Get)("canciones/:id/mp3"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Get)('canciones/:id/mp3'),
+    __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Object]),
     __metadata("design:returntype", Promise)
 ], CancionesController.prototype, "getSongMp3", null);
 exports.CancionesController = CancionesController = __decorate([
-    (0, common_1.Controller)("canciones"),
+    (0, common_1.Controller)('canciones'),
     __metadata("design:paramtypes", [canciones_service_1.CancionesService])
 ], CancionesController);
 //# sourceMappingURL=canciones.controller.js.map

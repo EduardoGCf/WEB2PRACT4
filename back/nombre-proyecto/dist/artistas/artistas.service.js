@@ -28,7 +28,7 @@ let ArtistasService = class ArtistasService {
         this.generosRepository = generosRepository;
     }
     findAll() {
-        return this.artistaRepository.find({ relations: ["genero"] });
+        return this.artistaRepository.find({ relations: ['genero'] });
     }
     async findByName(query) {
         return this.artistaRepository.find({
@@ -38,13 +38,13 @@ let ArtistasService = class ArtistasService {
     async findAlbunesByArtista(id) {
         return this.albunRepository.find({
             where: { artista: { id } },
-            relations: ["artista"],
+            relations: ['artista'],
         });
     }
     findOne(id) {
         return this.artistaRepository.findOne({
             where: { id },
-            relations: ["genero"],
+            relations: ['genero'],
         });
     }
     async create(createArtistaDto) {
@@ -61,7 +61,7 @@ let ArtistasService = class ArtistasService {
         return this.artistaRepository.save(artista);
     }
     async update(id, updateArtistaDto) {
-        const artista = await this.artistaRepository.findOne({ where: { id }, relations: ["genero"] });
+        const artista = await this.artistaRepository.findOne({ where: { id }, relations: ['genero'] });
         if (!artista) {
             throw new common_1.NotFoundException(`Artista con ID ${id} no encontrado`);
         }
@@ -84,21 +84,21 @@ let ArtistasService = class ArtistasService {
     async findAlbumsByArtist(artistaId) {
         return this.albunRepository.find({
             where: { artista: { id: artistaId } },
-            relations: ["artista"],
+            relations: ['artista'],
         });
     }
     async findSongsByArtist(artistaId) {
         return this.cancionRepository
-            .createQueryBuilder("cancion")
-            .innerJoinAndSelect("cancion.albun", "albun")
-            .innerJoinAndSelect("albun.artista", "artista")
-            .where("artista.id = :artistaId", { artistaId })
+            .createQueryBuilder('cancion')
+            .innerJoinAndSelect('cancion.albun', 'albun')
+            .innerJoinAndSelect('albun.artista', 'artista')
+            .where('artista.id = :artistaId', { artistaId })
             .getMany();
     }
     async findOneWithAlbumsAndSongs(id) {
         return this.artistaRepository.findOne({
             where: { id },
-            relations: ["albunes", "albunes.canciones"],
+            relations: ['albunes', 'albunes.canciones'],
         });
     }
 };

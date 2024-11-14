@@ -1,8 +1,8 @@
-import { Repository } from "typeorm";
-import { Albun } from "./albun.entity";
-import { Artista } from "../artistas/artista.entity";
-import { CreateAlbunDto, UpdateAlbunDto } from "./albun.dto";
-import { Cancion } from "../canciones/cancion.entity";
+import { Repository } from 'typeorm';
+import { Albun } from './albun.entity';
+import { Artista } from '../artistas/artista.entity';
+import { CreateAlbunDto, UpdateAlbunDto } from './albun.dto';
+import { Cancion } from '../canciones/cancion.entity';
 export declare class AlbunService {
     private readonly albunRepository;
     private readonly artistaRepository;

@@ -16,12 +16,12 @@ class CreateAlbunDto {
 exports.CreateAlbunDto = CreateAlbunDto;
 __decorate([
     (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)({ message: "El nombre del álbum no puede estar vacío" }),
+    (0, class_validator_1.IsNotEmpty)({ message: 'El nombre del álbum no puede estar vacío' }),
     __metadata("design:type", String)
 ], CreateAlbunDto.prototype, "nombre", void 0);
 __decorate([
     (0, class_validator_1.IsNumber)(),
-    (0, class_validator_1.IsNotEmpty)({ message: "El ID del artista es obligatorio" }),
+    (0, class_validator_1.IsNotEmpty)({ message: 'El ID del artista es obligatorio' }),
     __metadata("design:type", Number)
 ], CreateAlbunDto.prototype, "id_artista", void 0);
 __decorate([

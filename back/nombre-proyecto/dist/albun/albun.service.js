@@ -29,26 +29,26 @@ let AlbunService = class AlbunService {
     async findByName(query) {
         return this.albunRepository.find({
             where: { nombre: (0, typeorm_2.ILike)(`%${query}%`) },
-            relations: ["artista"],
+            relations: ['artista'],
         });
     }
     findAll() {
-        return this.albunRepository.find({ relations: ["artista"] });
+        return this.albunRepository.find({ relations: ['artista'] });
     }
     async findCancionesByAlbum(id) {
         const album = await this.albunRepository.findOne({
             where: { id },
-            relations: ["canciones"],
+            relations: ['canciones'],
         });
         if (!album) {
-            throw new common_2.NotFoundException("Álbum no encontrado");
+            throw new common_2.NotFoundException('Álbum no encontrado');
         }
         return album.canciones;
     }
     findOne(id) {
         return this.albunRepository.findOne({
             where: { id },
-            relations: ["artista"],
+            relations: ['artista'],
         });
     }
     async create(createAlbunDto) {
@@ -67,7 +67,7 @@ let AlbunService = class AlbunService {
     async update(id, updateAlbunDto) {
         const albun = await this.albunRepository.findOne({
             where: { id },
-            relations: ["artista"],
+            relations: ['artista'],
         });
         if (!albun) {
             throw new common_2.NotFoundException(`Álbum con ID ${id} no encontrado`);

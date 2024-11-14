@@ -65,26 +65,26 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], GeneroController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(":id/artistas"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Get)(':id/artistas'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], GeneroController.prototype, "findArtistasByGenero", null);
 __decorate([
-    (0, common_1.Get)(":id"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], GeneroController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Post)(),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)("imagen", {
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('imagen', {
         storage: (0, multer_1.diskStorage)({
-            destination: "./uploads",
+            destination: './uploads',
             filename: (req, file, callback) => {
-                const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+                const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
                 const ext = (0, path_1.extname)(file.originalname);
                 callback(null, `genero-${uniqueSuffix}${ext}`);
             },
@@ -97,18 +97,18 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], GeneroController.prototype, "create", null);
 __decorate([
-    (0, common_1.Patch)(":id"),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)("imagen", {
+    (0, common_1.Patch)(':id'),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('imagen', {
         storage: (0, multer_1.diskStorage)({
-            destination: "./uploads",
+            destination: './uploads',
             filename: (req, file, callback) => {
-                const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+                const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
                 const ext = (0, path_1.extname)(file.originalname);
                 callback(null, `genero-${uniqueSuffix}${ext}`);
             },
         }),
     })),
-    __param(0, (0, common_1.Param)("id")),
+    __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __param(2, (0, common_1.UploadedFile)()),
     __metadata("design:type", Function),
@@ -116,14 +116,14 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], GeneroController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(":id"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], GeneroController.prototype, "remove", null);
 exports.GeneroController = GeneroController = __decorate([
-    (0, common_1.Controller)("genero"),
+    (0, common_1.Controller)('genero'),
     __metadata("design:paramtypes", [generos_service_1.GenerosService])
 ], GeneroController);
 //# sourceMappingURL=generos.controller.js.map

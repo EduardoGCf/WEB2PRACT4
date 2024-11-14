@@ -1,7 +1,7 @@
-import { CancionesService } from "./canciones.service";
-import { Cancion } from "./cancion.entity";
-import { CreateCancionDto, UpdateCancionDto } from "./cancion.dto";
-import { Response } from "express";
+import { CancionesService } from './canciones.service';
+import { Cancion } from './cancion.entity';
+import { CreateCancionDto, UpdateCancionDto } from './cancion.dto';
+import { Response } from 'express';
 export declare class CancionesController {
     private readonly cancionesService;
     constructor(cancionesService: CancionesService);

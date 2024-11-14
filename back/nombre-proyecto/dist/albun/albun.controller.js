@@ -58,7 +58,7 @@ let AlbunController = class AlbunController {
         }
         const hasUpdates = Object.keys(updateAlbunDto).length > 0;
         if (!hasUpdates) {
-            throw new common_1.BadRequestException("No hay datos válidos para actualizar.");
+            throw new common_1.BadRequestException('No hay datos válidos para actualizar.');
         }
         return this.albunService.update(id, updateAlbunDto);
     }
@@ -74,26 +74,26 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], AlbunController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(":id/canciones"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Get)(':id/canciones'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], AlbunController.prototype, "findCancionesByAlbum", null);
 __decorate([
-    (0, common_1.Get)(":id"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], AlbunController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Post)(),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)("imagen", {
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('imagen', {
         storage: (0, multer_1.diskStorage)({
-            destination: "./uploads",
+            destination: './uploads',
             filename: (req, file, callback) => {
-                const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+                const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
                 const ext = (0, path_1.extname)(file.originalname);
                 callback(null, `albun-${uniqueSuffix}${ext}`);
             },
@@ -106,18 +106,18 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], AlbunController.prototype, "create", null);
 __decorate([
-    (0, common_1.Patch)(":id"),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)("imagen", {
+    (0, common_1.Patch)(':id'),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileInterceptor)('imagen', {
         storage: (0, multer_1.diskStorage)({
-            destination: "./uploads",
+            destination: './uploads',
             filename: (req, file, callback) => {
-                const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+                const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
                 const ext = (0, path_1.extname)(file.originalname);
                 callback(null, `albun-${uniqueSuffix}${ext}`);
             },
         }),
     })),
-    __param(0, (0, common_1.Param)("id")),
+    __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __param(2, (0, common_1.UploadedFile)()),
     __metadata("design:type", Function),
@@ -125,14 +125,14 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], AlbunController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(":id"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], AlbunController.prototype, "remove", null);
 exports.AlbunController = AlbunController = __decorate([
-    (0, common_1.Controller)("albunes"),
+    (0, common_1.Controller)('albunes'),
     __metadata("design:paramtypes", [albun_service_1.AlbunService])
 ], AlbunController);
 //# sourceMappingURL=albun.controller.js.map

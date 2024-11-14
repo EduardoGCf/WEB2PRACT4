@@ -21,23 +21,23 @@ __decorate([
     __metadata("design:type", Number)
 ], Albun.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: "varchar", length: 100 }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
     __metadata("design:type", String)
 ], Albun.prototype, "nombre", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: "varchar", nullable: true }),
+    (0, typeorm_1.Column)({ type: 'varchar', nullable: true }),
     __metadata("design:type", String)
 ], Albun.prototype, "imagen", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => artista_entity_1.Artista, artista => artista.albunes, { eager: true, onDelete: "CASCADE", onUpdate: "CASCADE" }),
-    (0, typeorm_1.JoinColumn)({ name: "id_artista" }),
+    (0, typeorm_1.ManyToOne)(() => artista_entity_1.Artista, artista => artista.albunes, { eager: true, onDelete: 'CASCADE', onUpdate: 'CASCADE' }),
+    (0, typeorm_1.JoinColumn)({ name: 'id_artista' }),
     __metadata("design:type", artista_entity_1.Artista)
 ], Albun.prototype, "artista", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => cancion_entity_1.Cancion, cancion => cancion.albun, { cascade: true, onDelete: "CASCADE", onUpdate: "CASCADE" }),
+    (0, typeorm_1.OneToMany)(() => cancion_entity_1.Cancion, cancion => cancion.albun, { cascade: true, onDelete: 'CASCADE', onUpdate: 'CASCADE' }),
     __metadata("design:type", Array)
 ], Albun.prototype, "canciones", void 0);
 exports.Albun = Albun = __decorate([
-    (0, typeorm_1.Entity)("albun")
+    (0, typeorm_1.Entity)('albun')
 ], Albun);
 //# sourceMappingURL=albun.entity.js.map

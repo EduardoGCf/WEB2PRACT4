@@ -21,31 +21,31 @@ __decorate([
     __metadata("design:type", Number)
 ], Artista.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: "varchar", length: 100 }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100 }),
     __metadata("design:type", String)
 ], Artista.prototype, "nombre", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: "varchar", nullable: true }),
+    (0, typeorm_1.Column)({ type: 'varchar', nullable: true }),
     __metadata("design:type", String)
 ], Artista.prototype, "imagen", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => genero_entity_1.Genero, genero => genero.artistas, {
         eager: true,
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
     }),
-    (0, typeorm_1.JoinColumn)({ name: "id_genero" }),
+    (0, typeorm_1.JoinColumn)({ name: 'id_genero' }),
     __metadata("design:type", genero_entity_1.Genero)
 ], Artista.prototype, "genero", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => albun_entity_1.Albun, albun => albun.artista, {
         cascade: true,
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
     }),
     __metadata("design:type", Array)
 ], Artista.prototype, "albunes", void 0);
 exports.Artista = Artista = __decorate([
-    (0, typeorm_1.Entity)("artista")
+    (0, typeorm_1.Entity)('artista')
 ], Artista);
 //# sourceMappingURL=artista.entity.js.map

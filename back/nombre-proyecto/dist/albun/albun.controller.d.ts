@@ -1,6 +1,6 @@
-import { AlbunService } from "./albun.service";
-import { Albun } from "./albun.entity";
-import { CreateAlbunDto, UpdateAlbunDto } from "./albun.dto";
+import { AlbunService } from './albun.service';
+import { Albun } from './albun.entity';
+import { CreateAlbunDto, UpdateAlbunDto } from './albun.dto';
 export declare class AlbunController {
     private readonly albunService;
     constructor(albunService: AlbunService);
